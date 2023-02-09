@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Deck {
 
 	private List<Card> cards = new ArrayList<>();
-	private String[] suits = { "Heart", "Diamond", "Club", "Spade" };
+	private String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
 
 	public Deck() {
 		for (String suit : suits) {
@@ -38,22 +38,24 @@ public class Deck {
 
 	public void Shuffle() {
 		List<Card> tempList = new ArrayList<>();
-		
+
 		do {
 			int max = cards.size();
 			int card = ThreadLocalRandom.current().nextInt(0, max);
 			tempList.add(cards.get(card));
 			cards.remove(card);
 		} while (cards.size() > 0);
-		
+
 		cards = tempList;
-		for (Card card : tempList) {
-			card.Describe();
-		}
+//		for (Card card : tempList) {
+//			card.Describe();
+//		}
 	}
 
 	public Card Draw() {
-
+		int topCard = cards.size() - 1;
+		Card card = cards.get(topCard);
+		cards.remove(topCard);
 		return card;
 	}
 
