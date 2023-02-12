@@ -9,23 +9,37 @@ public class Deck {
 
 	private List<Card> cards = new ArrayList<>();
 	private String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
+	private List<Card> discardPile = new ArrayList<>();
+	private String deckName = "WarDeck";
 
-	public Deck() {
-		for (String suit : suits) {
-			for (int i = 2; i <= 14; i++) {
-				Card card = new Card(i, suit);
-				this.cards.add(card);
-			}
-		}
-
+	public void TestDeckOnCard() {
+		System.out.println("the card is a part of: " + deckName);
 	}
 
-	public void ListCards() {
-		System.out.println("Total Cards: " + cards.size());
-		for (Card card : cards) {
-			card.Describe();
-		}
+//Constructor
+	public Deck(int deckCount) {
+		CreateDeck(deckCount);
+	}
 
+	private void CreateDeck(int deckCount) {
+		for (int a = 0; a < deckCount; a++) {
+			for (String suit : suits) {
+				for (int i = 2; i <= 14; i++) {
+					Card card = new Card(i, suit);
+					cards.add(card);
+					card.setPartOfDeck(this);
+				}
+			}
+		}
+	}
+
+//Getters & Setters
+	public List<Card> getDiscardPile() {
+		return discardPile;
+	}
+
+	public void addToDiscardPile(Card card) {
+		discardPile.add(card);
 	}
 
 	public List<Card> getCards() {
@@ -36,6 +50,7 @@ public class Deck {
 		this.cards = cards;
 	}
 
+//Main methods of Class
 	public void Shuffle() {
 		List<Card> tempList = new ArrayList<>();
 
@@ -57,6 +72,14 @@ public class Deck {
 		Card card = cards.get(topCard);
 		cards.remove(topCard);
 		return card;
+	}
+
+	public void ListCards() {
+		System.out.println("Total Cards: " + cards.size());
+		for (Card card : cards) {
+			card.Describe();
+		}
+
 	}
 
 }
