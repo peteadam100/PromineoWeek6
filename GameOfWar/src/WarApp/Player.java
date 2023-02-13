@@ -58,8 +58,8 @@ public class Player {
 		hand.add(deck.Draw());
 	}
 	
-	public void IncrementScore() {
-		score += 1;
+	public void IncrementScore(int increment) {
+		score += increment;
 	}
 //	Intended to use for playing multiple rounds
 	public void ShufflePlayerHand() {

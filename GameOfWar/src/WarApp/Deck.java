@@ -2,7 +2,7 @@ package WarApp;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+//import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Deck {
@@ -10,11 +10,11 @@ public class Deck {
 	private List<Card> cards = new ArrayList<>();
 	private String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
 	private List<Card> discardPile = new ArrayList<>();
-	private String deckName = "WarDeck";
-
-	public void TestDeckOnCard() {
-		System.out.println("the card is a part of: " + deckName);
-	}
+//	private String deckName = "WarDeck";
+//
+//	public void TestDeckOnCard() {
+//		System.out.println("the card is a part of: " + deckName);
+//	}
 
 //Constructor
 	public Deck(int deckCount) {
@@ -31,6 +31,7 @@ public class Deck {
 				}
 			}
 		}
+//		System.out.println("Created Deck");
 	}
 
 //Getters & Setters
